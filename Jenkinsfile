@@ -42,6 +42,9 @@ stage('Build Image') {
 
  steps {
 
+ echo "$QUAY_PSW"
+ echo "$QUAY_USR"
+
  sh '''
  ./mvnw quarkus:add-extension -Dextensions="kubernetes,container-image-jib" 
  '''
