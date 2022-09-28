@@ -40,17 +40,17 @@ pipeline {
       }
     }
 
-//    stage('Deploy - Stage') {
-//      environment {
-//      APP_NAMESPACE = "${RHT_OCP4_DEV_USER}-shopping-cart-stage"
-//      QUAY = credentials('QUAY_USER')
-//      }
-//      steps {
-//        sh """
-//        oc set image deployment ${DEPLOYMENT_STAGE} shopping-cart-stage=quay.io/${QUAY_USR}/do400-deployingenvironments:build-${BUILD_NUMBER} -n ${APP_NAMESPACE} --record
+    stage('Deploy - Stage') {
+      environment {
+        APP_NAMESPACE = "${RHT_OCP4_DEV_USER}-shopping-cart-stage"
+        QUAY = credentials('QUAY_USER')
+      }
+      steps {
+        sh """
+        oc set image deployment ${DEPLOYMENT_STAGE} shopping-cart-stage=quay.io/${QUAY_USR}/do400-deployingenvironments:build-${BUILD_NUMBER} -n ${APP_NAMESPACE} --record
         """
-//      }Ï
-//    }
+      }
+    }
  }
 }
 
